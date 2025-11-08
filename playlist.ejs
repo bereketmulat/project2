@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+   
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: black;
+      color: white;
+      min-height: 100px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    nav {
+      
+      top: 0;
+      width: 100%;
+      background: rgba(20, 20, 20, 0.95);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+     
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      list-style: none;
+      padding: 1rem;
+    }
+
+    nav a {
+      color:gray;
+      text-decoration: none;
+      font-weight: 500;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: blue;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: blue;
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    header {
+      text-align: center;
+      margin: 2rem 0 1rem 0;
+    }
+
+
+
+    .playlist-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 2rem;
+      padding: 2rem;
+      width: 90%;
+      max-width: 1200px;
+    }
+
+    .card {
+      background: #181818;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 8px 20px rgba(29, 185, 84, 0.25);
+    }
+
+    .card img {
+      width: 100%;
+      height: 230px;
+      object-fit: cover;
+      border-radius: 12px;
+      transition: opacity 0.3s ease;
+    }
+
+    .card:hover img {
+      opacity: 0.85;
+    }
+
+    .song-info {
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .song-info h3 {
+      font-size: 1.2rem;
+      color: #fff;
+    }
+
+    .song-info p {
+      color: #999;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+
+ 
+   
+  </style>
+<body>
+
+    <h1>Random Playlist  </h1>
+    <% for(let i = 0; i < playlist.length; i++){ %>
+        <p> <%= playlist[i].SongName %><br></p>
+        <p> <%= playlist[i].artist %>  <br></p>
+        <img src="<%= playlist[i].SongImage %>" width="200px"> <br>
+        <p id = line> ---------------------------------------------------------</p>
+        <p id = line2>---------------------------------------------------------</p>
+    <% } %>
+    
+    
+
+</body>
+</html>
